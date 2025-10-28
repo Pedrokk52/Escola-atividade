@@ -57,25 +57,37 @@ criarTurmaBtn.addEventListener("click", () => {
   novaTurmaNome.value = "";
 });
 
-// Renderizar turmas
 function renderizarTurmas() {
   turmasList.innerHTML = "";
+
   turmas.forEach(turma => {
     const div = document.createElement("div");
     div.className = "turma";
-    div.innerHTML = `<strong>${turma.nome}</strong>
-                     <div class="atividade">Nenhuma atividade cadastrada</div>`;
-    
-    div.addEventListener("click", () => {
+
+    div.innerHTML = `
+      <div class="turma-info">
+        <strong>${turma.nome}</strong>
+        <div class="atividade">Nenhuma atividade cadastrada</div>
+      </div>
+      <button class="excluirBtn">Excluir</button>
+    `;
+
+    // Clique na turma abre a turma.html
+    div.querySelector(".turma-info").addEventListener("click", () => {
       localStorage.setItem("turmaSelecionada", JSON.stringify(turma));
       window.location.href = "turma.html";
+    });
+
+    // Botão excluir
+    div.querySelector(".excluirBtn").addEventListener("click", (e) => {
+      e.stopPropagation(); // Evita abrir a turma ao clicar em excluir
+      if (confirm(`Deseja realmente excluir a turma "${turma.nome}"?`)) {
+        turmas = turmas.filter(t => t.id !== turma.id);
+        localStorage.setItem("turmas", JSON.stringify(turmas));
+        renderizarTurmas();
+      }
     });
 
     turmasList.appendChild(div);
   });
 }
-
-// Verifica login ao carregar
-window.onload = () => {
-  if (localStorage.getItem("usuario")) mostrarApp();
-};

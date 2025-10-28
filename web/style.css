@@ -72,3 +72,42 @@ button {
 
 /* Ocultar elementos */
 .hidden { display: none; }
+
+.excluirBtn {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 13px;
+  margin-left: 10px;
+  align-self: center;
+}
+
+.excluirBtn:hover {
+  background-color: #e53935;
+}
+
+/* Ajuste para alinhar botão ao lado do nome da turma */
+.turma {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f8ff;
+  border-left: 5px solid #4CAF50;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.turma:hover {
+  background-color: #e0f0ff;
+}
+
+.turma-info {
+  flex: 1;
+}
