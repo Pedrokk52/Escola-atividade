@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EscolaAvaliação - Painel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Login -->
+  <div id="loginDiv" class="card">
+    <h2>Login</h2>
+    <input id="username" placeholder="Usuário" value="professor">
+    <input id="password" type="password" placeholder="Senha" value="senha123">
+    <button id="loginBtn">Entrar</button>
+    <div id="loginMsg"></div>
+  </div>
+
+  <!-- Painel de Turmas -->
+  <div id="appDiv" class="card hidden">
+    <div class="top-bar">
+      <span id="professorName"></span>
+      <button id="logoutBtn">Sair</button>
+    </div>
+
+    <h3>Minhas Turmas</h3>
+    <div class="criar-turma">
+      <input id="novaTurmaNome" placeholder="Nome da turma">
+      <button id="criarTurmaBtn">Criar Turma</button>
+    </div>
+
+    <div id="turmasList"></div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
